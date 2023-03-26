@@ -11,7 +11,7 @@ class Person:
         self.gender = gender
 
     def __str__(self):
-        return f"{name} {age} {sexuality} {gender}"
+        return f"{name} {age} {sexuality} {gender}\n"
 
 name = st.text_input("Name")
 age = st.text_input("Age")
@@ -26,4 +26,4 @@ if st.button("Submit"):
 
 for x in f.readlines():
     st.write(x)
-    st.write("")
+f.close()
