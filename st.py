@@ -1,9 +1,7 @@
 import streamlit as st
 st.title("Hello world")
 
-#create a python object with personal info
-
-db = []
+f = open("db.txt", "a+")
 
 class Person:
     def __init__(self, name, age, sexuality, gender):
@@ -20,7 +18,12 @@ age = st.text_input("Age")
 sexuality = st.text_input("Sexuality")
 gender = st.text_input("Gender")
 
-db.append(Person(name, age, sexuality, gender))
+if st.button("Submit"):
+    f.write(str(Person(name, age, sexuality, gender)))
+    f.close()
+    
+    f = open("db.txt", "r")
 
-for x in db:
+for x in f.readlines():
     st.write(x)
+    st.write("")
